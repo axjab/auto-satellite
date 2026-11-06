@@ -1,0 +1,23 @@
+networks:
+  caddy:
+    external: true
+    # name: YOUR_EXISTING_DOCKER_NETWORK
+
+services:
+  auto-satellite:
+    # image: ghcr.io/axjab/auto-satellite
+    build: .
+    container_name: auto-satellite
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      LUBELOGGER_URL: http://lubelog:8080
+
+    # ports:
+      # - "127.0.0.1:8090:8090"
+
+    networks:
+      - caddy
