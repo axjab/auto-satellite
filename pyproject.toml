@@ -1,0 +1,16 @@
+[project]
+name = "vehicle-beacon"
+version = "0.1.0"
+description = "Read-only LubeLogger to NATS telemetry broadcaster"
+requires-python = ">=3.13"
+dependencies = ["aiohttp>=3.11,<4", "nats-py>=2.9,<3"]
+
+[project.scripts]
+vehicle-beacon = "vehicle_beacon:main"
+
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["vehicle_beacon"]
